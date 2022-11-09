@@ -4,6 +4,7 @@
       <v-app-bar
           color="teal-darken-4"
           image="https://picsum.photos/1920/1080?random"
+
       >
         <template v-slot:image>
           <v-img
@@ -12,28 +13,30 @@
         </template>
 
         <template v-slot:prepend>
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon
+              @click="drawer = !drawer"
+          >
+
+          </v-app-bar-nav-icon>
         </template>
 
         <v-app-bar-title>WoTnt</v-app-bar-title>
 
         <v-spacer></v-spacer>
 
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
+        <v-btn
+            v-for="link in links"
+            :key="link.title"
+            :to="link.url"
+            icon>
+          <v-icon>{{ link.icon }}</v-icon>
         </v-btn>
 
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
       </v-app-bar>
       <v-navigation-drawer
           expand-on-hover
           rail
+          v-model="drawer"
       >
         <v-list>
           <v-list-item
@@ -46,9 +49,16 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-multiple" title="Shared with me" value="shared"></v-list-item>
-          <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
+          <v-list-item
+              v-for="link of links"
+              :key="link.title"
+              :prepend-icon="link.icon"
+              :title="link.title"
+              :to="link.url"
+              value=""
+          >
+
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main>
@@ -59,6 +69,23 @@
 
 
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      drawer: false,
+      links: [
+        {title: 'Вход', icon: 'mdi-account', url: '/login'},
+        {title: 'Регистрация', icon: 'mdi-face', url: '/reg'},
+        {title: 'Заказы', icon: 'mdi-archive', url: '/orders'},
+        {title: 'Добавить проповедь', icon: 'mdi-card-plus', url: '/newGospel'},
+        {title: 'Список проповедей', icon: 'mdi-sticker', url: '/listGospel'}
+      ]
+    }
+  }
+}
+</script>
 
 <style>
 
