@@ -25,10 +25,12 @@
         <v-spacer></v-spacer>
 
         <v-btn
+            class="hidden-sm-and-down"
             v-for="link in links"
             :key="link.title"
             :to="link.url"
-            icon>
+            icon
+        >
           <v-icon>{{ link.icon }}</v-icon>
         </v-btn>
 
@@ -55,7 +57,6 @@
               :prepend-icon="link.icon"
               :title="link.title"
               :to="link.url"
-              value=""
           >
 
           </v-list-item>
