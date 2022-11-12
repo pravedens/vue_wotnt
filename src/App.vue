@@ -63,12 +63,11 @@
         </v-list>
       </v-navigation-drawer>
       <v-main>
-        <v-card height="200px"></v-card>
-        <router-view/>
+
+          <router-view/>
+
       </v-main>
     </v-layout>
-
-
 </template>
 
 <script>
