@@ -1,6 +1,7 @@
 <template>
-  <v-container>
-    <v-form
+  <v-sheet class="pa-12" rounded>
+    <v-card class="mx-auto px-6 py-8" max-width="344" title="Вход">
+     <v-form
         ref="form"
         v-model="valid"
         lazy-validation
@@ -30,7 +31,8 @@
         Вход
       </v-btn>
     </v-form>
-  </v-container>
+    </v-card>
+  </v-sheet>
 </template>
 
 <script>
