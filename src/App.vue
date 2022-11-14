@@ -20,7 +20,7 @@
           </v-app-bar-nav-icon>
         </template>
 
-        <v-app-bar-title>WoTnt</v-app-bar-title>
+        <router-link to="/" class="link-logo">WoTnt</router-link>
 
         <v-spacer></v-spacer>
 
@@ -87,6 +87,23 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .link-logo {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    letter-spacing: 1px;
+    margin: 0 20px;
+    font-size: 24px;
+    font-family: 'Fredoka One', cursive;
+    transition: .3s ease-in-out;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+  }
+  .link-logo:hover {
+    text-shadow: 1px 1px 1px #6A5F55;
+    transform: scaleX(1.1);
+  }
 </style>
