@@ -8,6 +8,8 @@
     >
 
       <v-text-field
+          name="email"
+          type="email"
           v-model="email"
           :rules="emailRules"
           label="E-mail"
@@ -15,6 +17,7 @@
       ></v-text-field>
 
       <v-text-field
+          name="password"
           v-model="password"
           :counter="8"
           :rules="passwordRules"
