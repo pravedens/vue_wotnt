@@ -1,13 +1,13 @@
 <template>
   <v-carousel hide-delimiters>
     <v-carousel-item
-        v-for="(item,i) in items"
-        :key="i"
-        :src="item.imageSrc"
+        v-for="gospel in promoGospels"
+        :key="gospel.id"
+        :src="gospel.imageSrc"
         cover
     >
       <div class="car-link">
-        <v-btn block :to="'/mainGospel/' + item.id">{{ item.title }}</v-btn>
+        <v-btn block :to="'/mainGospel/' + gospel.id">{{ gospel.title }}</v-btn>
       </div>
     </v-carousel-item>
   </v-carousel>
@@ -16,9 +16,9 @@
   >
     <v-row dense>
       <v-col
-          v-for="item of items"
-          :key="item.id"
-          :cols="item.flex"
+          v-for="gospel of gospels"
+          :key="gospel.id"
+          :cols="gospel.flex"
       >
         <v-card
             outlined
@@ -31,10 +31,10 @@
               class="white--text align-end"
               height="200px"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              :src="item.imageSrc"
+              :src="gospel.imageSrc"
               cover
           >
-            <v-card-title class="text-white" v-text="item.title"></v-card-title>
+            <v-card-title class="text-white" v-text="gospel.title"></v-card-title>
           </v-img>
 
           <v-card-subtitle class="pb-0">
@@ -42,13 +42,13 @@
           </v-card-subtitle>
 
           <v-card-text class="text--primary">
-            <div>{{ item.description }}</div>
+            <div>{{ gospel.description }}</div>
           </v-card-text>
 
           <v-card-actions>
             <v-btn
                 flat
-                :to="'/mainGospel/' + item.id"
+                :to="'/mainGospel/' + gospel.id"
             >
               Open
             </v-btn>
@@ -75,36 +75,16 @@ export default {
   name: "HomeComponent",
   data () {
     return {
-      items: [
-        {
-          title: 'First ad',
-          description: 'Hello i am description_1',
-          promo: false,
-          imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          id: '123'
-        },
-        {
-          title: 'Second ad',
-          description: 'Hello i am description_2',
-          promo: false,
-          imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          id: '1234'
-        },
-        {
-          title: 'Third ad',
-          description: 'Hello i am description_3',
-          promo: true,
-          imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          id: '12345'
-        },
-        {
-          title: 'For ad',
-          description: 'Hello i am description_4',
-          promo: true,
-          imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          id: '123456'
-        },
-      ],
+
+    }
+  },
+
+  computed: {
+    promoGospels () {
+      return this.$store.getters.promoGospels
+    },
+    gospels () {
+      return this.$store.getters.gospels
     }
   }
 }
