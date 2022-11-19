@@ -31,8 +31,18 @@ export default {
             },
         ],
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        createGospel(state, payload) {
+            state.gospels.push(payload)
+        }
+    },
+    actions: {
+        createGospel({commit}, payload) {
+            payload.id = 'dfghjjyutr'
+
+            commit('createGospel', payload)
+        }
+    },
     getters: {
         gospels (state) {
             return state.gospels
@@ -44,6 +54,11 @@ export default {
         },
         myGospels (state) {
             return state.gospels
+        },
+        GospelById (state) {
+            return gospelId => {
+                return state.gospels.find(gospel => gospel.id === gospelId)
+            }
         }
     }
 }

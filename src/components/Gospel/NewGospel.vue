@@ -106,9 +106,10 @@ export default {
         const gospel = {
           title: this.title,
           description: this.description,
-          promo: this.promo
+          promo: this.promo,
+          imageSrc: 'https://freephotos.cc/storage/preview/path/colored-pencils-upside-down-with-room-for-text_free_stock_photos_picjumbo_DSC03452-2210x1474.jpg'
         }
-        console.log(gospel)
+        this.$store.dispatch('createGospel', gospel)
       }
     }
   }

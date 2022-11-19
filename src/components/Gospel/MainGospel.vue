@@ -16,11 +16,11 @@
     <v-img
         cover
         height="350px"
-        src="https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
+        :src="gospel.imageSrc"
     ></v-img>
 
     <v-card-item>
-      <v-card-title>Cafe Badilico</v-card-title>
+      <v-card-title>{{ gospel.title }}</v-card-title>
 
       <v-card-subtitle>
         <v-icon
@@ -38,7 +38,7 @@
       >
       </v-row>
 
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+      <div>{{ gospel.description }}</div>
     </v-card-text>
 
     <v-card-actions>
@@ -62,6 +62,7 @@
 
 <script>
 export default {
+  props: ['id'],
   name: "MainGospel",
   data () {
     return {
@@ -76,6 +77,13 @@ export default {
       setTimeout(() => (this.loading = false), 2000)
     },
   },
+
+  computed: {
+    gospel () {
+      const id = this.id
+      return this.$store.getters.GospelById(id)
+    }
+  }
 }
 </script>
 

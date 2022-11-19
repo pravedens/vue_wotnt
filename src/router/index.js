@@ -23,6 +23,7 @@ const routes = [
   },
   {
     path: '/mainGospel/:id',
+    props: true,
     name: 'mainGospel',
     component: () => import('../components/Gospel/MainGospel')
   },
