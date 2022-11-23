@@ -33,6 +33,11 @@
         >
           <v-icon>{{ link.icon }}</v-icon>
         </v-btn>
+        <v-btn
+            class="hidden-sm-and-down"
+        >
+          Выход
+        </v-btn>
 
       </v-app-bar>
       <v-navigation-drawer
@@ -83,7 +88,7 @@ export default {
         {title: 'Список проповедей', icon: 'mdi-sticker', url: '/listGospel'}
       ]
     }
-  }
+  },
 }
 </script>
 

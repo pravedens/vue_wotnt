@@ -4,38 +4,38 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../components/HomeComponent')
+    component: () => import('../views/HomeComponent'),
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../components/Auth/LoginAuth')
+    component: () => import('../views/Auth/LoginAuth')
   },
   {
     path: '/reg',
     name: 'reg',
-    component: () => import('../components/Auth/RegAuth')
+    component: () => import('../views/Auth/RegAuth')
   },
   {
     path: '/listGospel',
     name: 'listGospel',
-    component: () => import('../components/Gospel/ListGospel')
+    component: () => import('../views/Gospel/ListGospel'),
   },
   {
     path: '/mainGospel/:id',
     props: true,
     name: 'mainGospel',
-    component: () => import('../components/Gospel/MainGospel')
+    component: () => import('../views/Gospel/MainGospel'),
   },
   {
     path: '/newGospel',
     name: 'newGospel',
-    component: () => import('../components/Gospel/NewGospel')
+    component: () => import('../views/Gospel/NewGospel'),
   },
   {
     path: '/orders',
     name: 'orders',
-    component: () => import('../components/User/OrderUser')
+    component: () => import('../views/User/OrderUser'),
   },
 ]
 
